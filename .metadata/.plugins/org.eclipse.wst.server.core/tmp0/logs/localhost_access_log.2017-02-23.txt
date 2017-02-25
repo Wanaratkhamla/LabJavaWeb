@@ -1,0 +1,12 @@
+127.0.0.1 - - [23/Feb/2017:18:15:16 +0700] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:15:18 +0700] "GET /activityTest/result.jsp HTTP/1.1" 200 805
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:15:25 +0700] "POST /activityTest/NoteController HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:15:25 +0700] "GET /activityTest/result.jsp HTTP/1.1" 200 915
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:36:33 +0700] "POST /activityTest/NoteController HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:36:33 +0700] "GET /activityTest/result.jsp HTTP/1.1" 200 1013
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:36:36 +0700] "GET /activityTest/NoteController?nid=4&action=delete HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:36:36 +0700] "GET /activityTest/result.jsp HTTP/1.1" 200 915
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:38:16 +0700] "POST /activityTest/NoteController HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:38:16 +0700] "GET /activityTest/result.jsp HTTP/1.1" 200 1025
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:38:28 +0700] "GET /activityTest/NoteController?nid=5&action=delete HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Feb/2017:18:38:28 +0700] "GET /activityTest/result.jsp HTTP/1.1" 200 915

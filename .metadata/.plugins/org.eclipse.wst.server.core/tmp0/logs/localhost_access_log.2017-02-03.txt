@@ -1,0 +1,13 @@
+127.0.0.1 - - [03/Feb/2017:01:05:30 +0700] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:05:31 +0700] "GET /LoginSession/login.html HTTP/1.1" 200 235
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:05:38 +0700] "POST /LoginSession/CheckLogin HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:05:38 +0700] "GET /LoginSession/TestExpire HTTP/1.1" 200 22
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:07:43 +0700] "GET /LoginSession/TestExpire HTTP/1.1" 200 145
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:07:51 +0700] "GET /LoginSession/login.html HTTP/1.1" 304 -
+127.0.0.1 - - [03/Feb/2017:01:08:46 +0700] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:08:47 +0700] "GET /TestSsesion/ HTTP/1.1" 404 1018
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:09:07 +0700] "GET /TestSsesion/Testssesion.jsp HTTP/1.1" 200 481
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:09:14 +0700] "POST /TestSsesion/NewSession HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:09:14 +0700] "GET /TestSsesion/Testssesion.jsp HTTP/1.1" 200 481
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:09:28 +0700] "POST /TestSsesion/NewSession HTTP/1.1" 200 21
+0:0:0:0:0:0:0:1 - - [03/Feb/2017:01:12:20 +0700] "POST /TestSsesion/NewSession HTTP/1.1" 200 21

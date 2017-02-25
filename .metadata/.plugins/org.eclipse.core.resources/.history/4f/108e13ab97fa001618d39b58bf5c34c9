@@ -1,0 +1,16 @@
+package Model;
+
+import java.sql.Connection;
+
+public class ConnectDatabase {
+	private static Connection Com;
+
+	public static Connection getConnection() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String dbURL = "jdbc:mysql://localhost/blueshop?characterEncoding=utf-8";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

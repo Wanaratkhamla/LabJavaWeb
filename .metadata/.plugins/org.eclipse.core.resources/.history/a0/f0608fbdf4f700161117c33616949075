@@ -1,0 +1,47 @@
+package Model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+
+public class ProductDAO {
+	private Connection con;
+
+	public ProductDAO() {
+		con = ConnectDatabase.getConnection();
+	}
+
+	public ArrayList<Product> ViewAllCartuser(String pname) {
+		ArrayList<Product> Prolist = new ArrayList<Product>();
+		try {
+			PreparedStatement pStatement = con.prepareStatement("SELECT * FROM product WHERE pname LIKE '?'");
+			pStatement.setString(1, pname);
+			ResultSet resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int pid = resultSet.getInt("pid");
+				String pname = resultSet.getString("pname");
+				String pdetail = resultSet.getString("pdetail");
+				int price = resultSet.getInt("price");
+
+				Cart cart = new Cart();
+				cart.setCartID(CartID);
+				cart.setUsername(username);
+				cart.setCartOrderdate(CartOrderdate);
+				cart.setCartTotalProduct(CartTotalProduct);
+				cart.setCartPaydate(CartPaydate);
+				cart.setCartStatus(CartStatus);
+				cart.setCartTotalPrice(CartTotalPrice);
+				Cartlist.add(cart);
+			}
+
+		} catch (SQLException e) {
+			System.err.println("Error: " + e);
+		}
+		return Cartlist;
+	}
+
+}

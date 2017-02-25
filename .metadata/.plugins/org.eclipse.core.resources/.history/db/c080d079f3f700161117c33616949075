@@ -1,0 +1,8 @@
+package Model;
+
+public class Product {
+	private int pid;
+	private String pname;
+	private String pdetail;
+	private int price;
+}

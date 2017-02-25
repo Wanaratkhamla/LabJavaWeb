@@ -1,0 +1,16 @@
+
+public class testConcat {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String noon = "love nos";
+		String nos = "love noon";
+		String love = noon + nos;
+		String love2 = noon.concat(nos);
+		System.out.println(love);
+		System.out.println(love2);
+		int test = love.indexOf("n");
+		System.out.println(test);
+	}
+
+}

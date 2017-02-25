@@ -1,0 +1,42 @@
+<%@page import="Model.Product"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta charset="utf-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="POST" action="ProductCtrl">
+		<input type="hidden" name="action" value="search"> <input
+			type="text" name="string">
+		<button type="summit">ค้นหา</button>
+	</form>
+	<br>
+
+	<table border="1" cellpadding="5">
+		<tr>
+			<td>รหัส</td>
+			<td>ชื่อ</td>
+			<td>รายละเอียด</td>
+			<td>ราคา</td>
+		</tr>
+		<%
+		ArrayList<Product> list = (ArrayList<Product>) request.getAttribute("product");//request from NoteController
+		for (int i = 0; i < list.size(); i++) {
+			Product pro = list.get(i); %>
+
+		<tr>
+			<td align="center"><%=pro.getPid() %></td>
+			<td align="center"><%=pro.getPname() %></td>
+			<td align="center"><%=pro.getPdetail() %></td>
+			<td align="center"><%=pro.getPrice()%></td>
+		</tr>
+	<%} %>
+		out.println(pro.getNid()); out.println(pro.getTask()); out.println("
+		<a href='deletecontroller?nid="+ note.getNid() +"'>ลบ</a>
+		<br>"); } %>
+</body>
+</html>

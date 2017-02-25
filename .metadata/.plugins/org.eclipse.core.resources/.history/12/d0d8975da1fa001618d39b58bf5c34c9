@@ -1,0 +1,23 @@
+package Model;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class ProductDAO {
+	private Connection con;
+	
+	public ProductDAO() {
+		con = ConnectDatabase.getConnection();
+	}
+	
+	public ArrayList<Product> SearchPro(String pname){
+		ArrayList<Product> Prolist = new ArrayList<Product>();
+		try {
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+}

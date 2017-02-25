@@ -1,0 +1,63 @@
+package Model;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ProductDAO {
+	private Connection con;
+
+	public ProductDAO() {
+		con = ConnectDatabase.getConnection();
+	}
+
+	public ArrayList<Product> SearchPro(String pname) {
+		ArrayList<Product> Prolist = new ArrayList<Product>();
+		try {
+			PreparedStatement pStatement = con.prepareStatement("SELECT * FROM product WHERE pname LIKE ? ");
+			pStatement.setString(1, "%" + pname + "%");
+			ResultSet resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int pid = resultSet.getInt("pid");
+				String pnames = resultSet.getString("pname");
+				String pdetail = resultSet.getString("pdetail");
+				int price = resultSet.getInt("price");
+
+				Product product = new Product();
+				product.setPid(pid);
+				product.setPname(pnames);
+				product.setPdetail(pdetail);
+				product.setPrice(price);
+				Prolist.add(product);
+			}
+
+		} catch (SQLException e) {
+			System.err.println("Error: " + e);
+		}
+		return Prolist;
+	}
+
+	public void editProduct(int pid, String pname, String pdetail, String price) {
+		try {
+			PreparedStatement pStatement = con
+					.prepareStatement("UPDATE product SET pname = ? , pdetail = ?, price = ?  WHERE pid = ?");
+			pStatement.setString(1, pname);
+			pStatement.setString(2, pdetail);
+			pStatement.setString(3, price);
+			pStatement.setInt(4, pid);
+			pStatement.executeUpdate();
+			con.close();
+		} catch (SQLException e) {
+			System.err.println("Error: " + e);
+		}
+	}
+
+}

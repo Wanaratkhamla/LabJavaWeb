@@ -1,0 +1,6 @@
+package Model;
+
+public class Note {
+	private int nid;
+	private String task;
+}
