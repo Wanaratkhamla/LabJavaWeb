@@ -1,0 +1,15 @@
+package Model;
+
+import java.sql.Connection;
+
+public class StudentDAO {
+	private Connection con;
+	
+	public StudentDAO(){
+		con = ConnectDatabase.getConnection();
+	}
+	
+	public void InsertStudent(){
+		String sql = "INSERT INTO student (SID,Password,departmantID,fname,lname) VALUE ()";
+	}
+}

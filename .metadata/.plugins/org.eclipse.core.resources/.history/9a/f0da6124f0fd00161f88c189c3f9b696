@@ -1,0 +1,53 @@
+package Model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class StudentDAO {
+	private Connection con;
+	
+	public StudentDAO(){
+		con = ConnectDatabase.getConnection();
+	}
+	
+	public void InsertStudent(int sid , String password , int departmantID , String fname , String lname){
+		String sql = "INSERT INTO student (SID,Password,departmantID,fname,lname) VALUE (?,?,?,?,?)";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, sid);
+			ps.setString(2, password);
+			ps.setInt(3, departmantID);
+			ps.setString(4, fname);
+			ps.setString(5, lname);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public Student login(String sid ,String password){
+		Student student = new Student();
+		String sql = "SELECT * FROM student WHERE SID = ? AND Password = ?";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, sid);
+			ps.setString(2, password);
+			ResultSet result = ps.executeQuery();
+			if (result.next()) {
+				student.setCheck(true);
+				student.setSID(result.getString("SID"));
+				student.setPassword(result.getString("Password"));
+				student.setDepartmentID(result.getInt("departmantID"));
+				student.setFname(result.getString("fname"));
+				student.setLname(result.getString("lname"));
+			}else{
+				student.setCheck(false);
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		return student;
+	}
+}

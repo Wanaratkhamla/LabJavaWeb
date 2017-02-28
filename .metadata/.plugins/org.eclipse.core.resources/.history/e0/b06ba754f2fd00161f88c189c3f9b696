@@ -1,0 +1,12 @@
+package Model;
+
+public class StudentDapart {
+	private int departmantID;
+	private String departmantName;
+	
+	private String SID;
+	private String Password;
+	private int departmentID;
+	private String fname;
+	private String lname;
+}

@@ -1,0 +1,39 @@
+package Model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class StudentDAO {
+	private Connection con;
+	
+	public StudentDAO(){
+		con = ConnectDatabase.getConnection();
+	}
+	
+	public void InsertStudent(int sid , String password , int departmantID , String fname , String lname){
+		String sql = "INSERT INTO student (SID,Password,departmantID,fname,lname) VALUE (?,?,?,?,?)";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, sid);
+			ps.setString(2, password);
+			ps.setInt(3, departmantID);
+			ps.setString(4, fname);
+			ps.setString(5, lname);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public Student login(int sid ,String password){
+		Student student = new Student();
+		String sql = "SELECT * FROM admin WHERE SID=?";
+		try {
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		return student;
+	}
+}
