@@ -28,11 +28,11 @@
 	%>
 
 	<form method="POST" action="ProductCtrl">
-		<input type="hidden" name="action" value="search"> 
-		<input
+		<input type="hidden" name="action" value="search"> <input
 			type="text" name="string">
 		<button type="summit">ค้นหา</button>
 	</form>
+	<a href='Insert.jsp'>เพิ่มสินค้า</a>
 	<br>
 
 	<table border="1" cellpadding="5">
@@ -51,6 +51,9 @@
 			<td align="center"><%=pro.getString("pname")%></td>
 			<td align="center"><%=pro.getString("pdetail")%></td>
 			<td align="center"><%=pro.getInt("price")%></td>
+			<td><a
+				href="ProductCtrl?pid=<%=pro.getInt("pid")%>&action=delete">ลบ</a></td>
+			<td><a href="Edit.jsp?pid=<%=pro.getInt("pid")%>">แก้ไข</a></td>
 		</tr>
 		<%
 			}

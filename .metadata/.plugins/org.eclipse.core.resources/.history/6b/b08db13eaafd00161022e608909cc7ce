@@ -1,0 +1,15 @@
+package Model;
+
+import java.sql.Connection;
+
+public class ForumDAO {
+	private Connection con;
+
+	public ForumDAO() {
+		con = ConnectDatabase.getConnection();
+	}
+	
+	public void updatelove(int love){
+		
+	}
+}

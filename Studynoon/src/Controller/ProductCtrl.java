@@ -44,6 +44,30 @@ public class ProductCtrl extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("search.jsp");
 			view.forward(request, response);
 		}
+		
+		if (action.equals("edit")) {
+			String pid = request.getParameter("pid");
+			int pids = Integer.parseInt(pid);
+			String pname = new String(request.getParameter("pname").getBytes("ISO8859_1"), "utf-8");
+			String pdetail = new String(request.getParameter("pdetail").getBytes("ISO8859_1"), "utf-8");
+			String price = new String(request.getParameter("price").getBytes("ISO8859_1"), "utf-8");
+			product.updateProduct(pids, pname, pdetail, price);
+			response.sendRedirect("index.jsp");
+			
+		}
+		
+		if (action.equals("delete")) {
+			String pid = request.getParameter("pid");
+			product.deleteproduct(Integer.parseInt(pid));
+			response.sendRedirect("index.jsp");
+		}
+		if (action.equals("insert")) {
+			String pname = new String(request.getParameter("pname").getBytes("ISO8859_1"), "utf-8");
+			String pdetail = new String(request.getParameter("pdetail").getBytes("ISO8859_1"), "utf-8");
+			String price = new String(request.getParameter("price").getBytes("ISO8859_1"), "utf-8");
+			product.insertpro(pname, pdetail, price);
+			response.sendRedirect("index.jsp");
+		}
 	}
 
 }

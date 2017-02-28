@@ -1,0 +1,9 @@
+package Model;
+
+public class Forum {
+	private int fid;
+	private String detail;
+	private String author;
+	private int love;
+	private String post_date;
+}

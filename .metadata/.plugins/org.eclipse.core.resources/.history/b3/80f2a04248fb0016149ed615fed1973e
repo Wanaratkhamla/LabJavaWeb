@@ -1,0 +1,42 @@
+package Model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class ProductDAO {
+	private Connection con;
+	
+	public ProductDAO() {
+		con = ConnectDatabase.getConnection();
+	}
+	
+	public ArrayList<Product> SearchPro(String pname){
+		ArrayList<Product> Prolist = new ArrayList<Product>();
+		try {
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM product WHERE pname LIKE ? ");
+			ps.setString(1, "%" + pname + "%");
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				Product pro = new Product();
+				int pid = rs.getInt("pid");
+				String pnames = rs.getString("pname");
+				String pdetail = rs.getString("pdetail");
+				int price = rs.getInt("price");
+				
+				pro.setPid(pid);
+				pro.setPname(pnames);
+				pro.setPdetail(pdetail);
+				pro.setPrice(price);
+				Prolist.add(pro);
+				
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		return Prolist;
+	}
+}

@@ -14,6 +14,7 @@
 			type="text" name="string">
 		<button type="summit">ค้นหา</button>
 	</form>
+	<a href='Insert.jsp'>เพิ่มสินค้า</a>
 	<br>
 
 	<table border="1" cellpadding="5">
@@ -24,17 +25,23 @@
 			<td>ราคา</td>
 		</tr>
 		<%
-		ArrayList<Product> list = (ArrayList<Product>) request.getAttribute("product");//request from NoteController
-		for (int i = 0; i < list.size(); i++) {
-			Product pro = list.get(i); %>
+			ArrayList<Product> list = (ArrayList<Product>) request.getAttribute("product");//request from NoteController
+			for (int i = 0; i < list.size(); i++) {
+				Product pro = list.get(i);
+		%>
 
 		<tr>
-			<td align="center"><%=pro.getPid() %></td>
-			<td align="center"><%=pro.getPname() %></td>
-			<td align="center"><%=pro.getPdetail() %></td>
+			<td align="center"><%=pro.getPid()%></td>
+			<td align="center"><%=pro.getPname()%></td>
+			<td align="center"><%=pro.getPdetail()%></td>
 			<td align="center"><%=pro.getPrice()%></td>
+			<td><a href="ProductCtrl?pid=<%=pro.getPid()%>&action=delete">ลบ</a>
+			</td>
+			<td><a href="Edit.jsp?pid=<%=pro.getPid()%>">แก้ไข</a></td>
 		</tr>
-	<%} %>
+		<%
+			}
+		%>
 	</table>
 </body>
 </html>

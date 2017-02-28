@@ -1,0 +1,11 @@
+package Model;
+
+import java.sql.Connection;
+
+public class ForumDAO {
+	private Connection con;
+
+	public ProductDAO() {
+		con = ConnectDatabase.getConnection();
+	}
+}

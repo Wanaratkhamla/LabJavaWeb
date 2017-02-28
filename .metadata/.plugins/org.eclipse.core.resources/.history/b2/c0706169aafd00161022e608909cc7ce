@@ -1,0 +1,20 @@
+package Model;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class ForumDAO {
+	private Connection con;
+
+	public ForumDAO() {
+		con = ConnectDatabase.getConnection();
+	}
+	
+	public void updatelove(int love){
+		try {
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+	}
+}

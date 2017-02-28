@@ -1,9 +1,0 @@
-<!DOCTYPE html>
-<html><body>
-<form action = "s">
-first parameter : <INPUT TYPE ="TEXT" NAME = "param1"><br>
-second parameter : <INPUT TYPE ="TEXT" NAME = "param2"><br>
-third parameter : <INPUT TYPE ="TEXT" NAME = "param3"><br>
-<INPUT TYPE ="submit">
-</form action>
-</html></body>
